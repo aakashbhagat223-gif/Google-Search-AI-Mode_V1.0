@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package com.glassremote.proto;
+option java_package = "com.glassremote.proto";
+option java_multiple_files = true;
+
+message RemoteMessage {
+    oneof payload {
+        RemoteConfigure configure = 1;
+        RemoteKeyInject key_inject = 2;
+        RemotePing ping = 3;
+    }
+}
+
+message RemoteConfigure {
+    int32 code1 = 1;
+    string device_info = 2;
+}
+
+message RemoteKeyInject {
+    int32 key_code = 1;
+    int32 direction = 2;
+}
+
+message RemotePing {
+    int64 val1 = 1;
+}
