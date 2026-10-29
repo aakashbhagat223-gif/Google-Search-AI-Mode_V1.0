@@ -22,7 +22,6 @@ fun RemoteScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceBetween
     ) {
-        // Top Header
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -32,7 +31,7 @@ fun RemoteScreen() {
         ) {
             Text("Living Room TV", color = Color.White, fontSize = 20.sp)
             IconButton(
-                onClick = { /* ADB Power Toggle: input keyevent 26 */ },
+                onClick = { /* ADB Power Toggle */ },
                 modifier = Modifier
                     .size(48.dp)
                     .background(Color(0xFF26181B), CircleShape)
@@ -41,7 +40,6 @@ fun RemoteScreen() {
             }
         }
 
-        // D-Pad Controller
         Box(
             modifier = Modifier
                 .size(240.dp)
@@ -49,31 +47,31 @@ fun RemoteScreen() {
             contentAlignment = Alignment.Center
         ) {
             Button(
-                onClick = { /* ADB input keyevent 19 (UP) */ },
+                onClick = { /* ADB UP (19) */ },
                 modifier = Modifier.align(Alignment.TopCenter).padding(top = 8.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent)
             ) { Text("▲", color = Color.LightGray) }
 
             Button(
-                onClick = { /* ADB input keyevent 20 (DOWN) */ },
+                onClick = { /* ADB DOWN (20) */ },
                 modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 8.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent)
             ) { Text("▼", color = Color.LightGray) }
 
             Button(
-                onClick = { /* ADB input keyevent 21 (LEFT) */ },
+                onClick = { /* ADB LEFT (21) */ },
                 modifier = Modifier.align(Alignment.CenterStart).padding(start = 8.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent)
             ) { Text("◀", color = Color.LightGray) }
 
             Button(
-                onClick = { /* ADB input keyevent 22 (RIGHT) */ },
+                onClick = { /* ADB RIGHT (22) */ },
                 modifier = Modifier.align(Alignment.CenterEnd).padding(end = 8.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent)
             ) { Text("▶", color = Color.LightGray) }
 
             Button(
-                onClick = { /* ADB input keyevent 66 (OK) */ },
+                onClick = { /* ADB OK (66) */ },
                 modifier = Modifier
                     .size(80.dp)
                     .background(Color(0xFF2C2F3A), CircleShape),
@@ -81,25 +79,23 @@ fun RemoteScreen() {
             ) { Text("OK", color = Color.White, fontSize = 16.sp) }
         }
 
-        // Navigation Bar (Back / Home)
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             Button(
-                onClick = { /* ADB input keyevent 4 (BACK) */ },
+                onClick = { /* ADB BACK (4) */ },
                 shape = RoundedCornerShape(20.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF1E2028))
             ) { Text("Back", color = Color.White) }
 
             Button(
-                onClick = { /* ADB input keyevent 3 (HOME) */ },
+                onClick = { /* ADB HOME (3) */ },
                 shape = RoundedCornerShape(20.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF1E2028))
             ) { Text("Home", color = Color.White) }
         }
 
-        // App Launchers / Quick Actions
         Row(
             modifier = Modifier
                 .fillMaxWidth()
