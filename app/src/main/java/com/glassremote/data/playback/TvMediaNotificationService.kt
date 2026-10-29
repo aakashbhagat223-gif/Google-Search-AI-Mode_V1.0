@@ -10,7 +10,6 @@ import android.support.v4.media.MediaMetadataCompat
 import android.support.v4.media.session.MediaSessionCompat
 import android.support.v4.media.session.PlaybackStateCompat
 import androidx.core.app.NotificationCompat
-import com.glassremote.R
 
 class TvMediaNotificationService : Service() {
 
@@ -22,18 +21,10 @@ class TvMediaNotificationService : Service() {
         createChannel()
         mediaSession = MediaSessionCompat(this, "GlassRemoteMediaSession").apply {
             setCallback(object : MediaSessionCompat.Callback() {
-                override fun onPlay() {
-                    // Send ADB command: input keyevent 126
-                }
-                override fun onPause() {
-                    // Send ADB command: input keyevent 127
-                }
-                override fun onSkipToNext() {
-                    // Send ADB command: input keyevent 87
-                }
-                override fun onSkipToPrevious() {
-                    // Send ADB command: input keyevent 88
-                }
+                override fun onPlay() {}
+                override fun onPause() {}
+                override fun onSkipToNext() {}
+                override fun onSkipToPrevious() {}
             })
             isActive = true
         }
@@ -62,7 +53,7 @@ class TvMediaNotificationService : Service() {
         )
 
         val notification = NotificationCompat.Builder(this, channelId)
-            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setSmallIcon(android.R.drawable.ic_media_play)
             .setContentTitle(title)
             .setContentText(artist)
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
